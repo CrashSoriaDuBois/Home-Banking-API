@@ -1,25 +1,32 @@
 package com.example.HomeBankingApi.models;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+
+import jakarta.persistence.*;
+import org.hibernate.annotations.GenericGenerator;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import static java.util.stream.Collectors.toList;
+
 @Entity
 public class Client {
     @Id
-    private int clientID;
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
+    private long clientID;
     private String firstName;
     private String lastName;
     private String email;
 
     public Client() {
     }
-
-    public Client(int clientID, String firstName, String lastName, String email) {
+    public Client(long clientID, String firstName, String lastName, String email) {
         this.clientID = clientID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
     }
 
-    public int getClientID() {
+    public long getClientID() {
         return clientID;
     }
 

@@ -1,6 +1,6 @@
 package com.example.HomeBankingApi;
 import com.example.HomeBankingApi.models.Client;
-import com.example.HomeBankingApi.repository.ClientRepository;
+import com.example.HomeBankingApi.repositories.ClientRepository;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
