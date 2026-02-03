@@ -17,10 +17,19 @@ public class Client {
     private String lastName;
     private String email;
 
+    @OneToMany(mappedBy="client", fetch= FetchType.EAGER)
+    Set<Account> accounts = new HashSet<>();
+
     public Client() {
     }
-    public Client(long clientID, String firstName, String lastName, String email) {
-        this.clientID = clientID;
+    public Set<Account> getAccounts() {
+        return accounts;
+}
+    public void addAccounts(Account account) {
+        account.setClient(this);
+        accounts.add(account);
+    }
+    public Client( String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

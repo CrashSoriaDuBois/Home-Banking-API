@@ -8,6 +8,7 @@ public class ClientDTO {
     public String firstName;
     public String lastName;
     public String email;
+    public Set<AccountDTO> accounts;
 
     public ClientDTO() {
     }
@@ -19,5 +20,7 @@ public class ClientDTO {
         this.lastName = client.getLastName();
 
         this.email = client.getEmail();
+
+        this.accounts = client.getAccounts().stream().map(AccountDTO::new).collect(Collectors.toSet());
     }
 }
