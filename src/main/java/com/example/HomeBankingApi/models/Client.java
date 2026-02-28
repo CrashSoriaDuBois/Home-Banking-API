@@ -24,7 +24,7 @@ public class Client {
     }
     public Set<Account> getAccounts() {
         return accounts;
-}
+    }
     public void addAccounts(Account account) {
         account.setClient(this);
         accounts.add(account);

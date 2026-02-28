@@ -11,13 +11,14 @@ public class AccountDTO {
     public String number;
     public LocalDate creationDate;
     public double balance;
-
+    private Set<TransactionDTO> transactions;
     public AccountDTO(){}
     public AccountDTO(Account account){
         this.id = account.getAccountID();
         this.number = account.getNumber();
         this.creationDate = account.getCreationDate();
         this.balance = account.getBalance();
+        this.transactions = account.getTransactions().stream().map(TransactionDTO::new).collect(Collectors.toSet());
     }
 
     public long getId() {
@@ -50,5 +51,9 @@ public class AccountDTO {
 
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+
+    public AccountDTO(Set<TransactionDTO> transactions) {
+        this.transactions = transactions;
     }
 }
